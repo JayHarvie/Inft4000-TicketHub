@@ -16,7 +16,7 @@ namespace TicketHub
         public string Name { get; set; } = string.Empty;
 
         [Required]
-        [RegularExpression(@"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$", ErrorMessage = "Phone number must be 10 digits.")]
+        [RegularExpression(@"^(\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$", ErrorMessage = "Phone number must be a valid 10-digit number.")]
         public string Phone { get; set; } = string.Empty;
 
         [Required]
