@@ -16,12 +16,12 @@ namespace TicketHub
         public string Name { get; set; } = string.Empty;
 
         [Required]
-        [RegularExpression(@"^(\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$", ErrorMessage = "Phone number must be a valid number.")]
+        [Phone]
         [MaxLength(10, ErrorMessage = "Phone number needs to be 10 numbers.")]
         public string Phone { get; set; } = string.Empty;
 
         [Required]
-        [Range(1, 6, ErrorMessage = "Quantity must be between 1 and 6.")]
+        [Range(1, 6, ErrorMessage = "Quantity must be in range 1 and 6.")]
         public int Quantity { get; set; }
 
         [Required]
@@ -29,7 +29,7 @@ namespace TicketHub
         public string CreditCard { get; set; } = string.Empty;
 
         [Required]
-        [RegularExpression(@"^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$", ErrorMessage = "Expiration must be in MM/YYYY format.")]
+        [RegularExpression(@"^(0[1-9]|1[0-2])\/?([0-9]{2})$", ErrorMessage = "Expiration must be in MM/YY format.")]
         public string Expiration { get; set; } = string.Empty;
 
         [Required]
@@ -53,7 +53,7 @@ namespace TicketHub
 
         [Required]
         [RegularExpression(@"^[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d$", ErrorMessage = "Postal code must be in the format A1A1A1.")]
-        [MaxLength(6, ErrorMessage = "Postal code must be 6 characters.")]
+        [Range(6, 6, ErrorMessage = "Postal code must be 6 characters.")]
         public string PostalCode { get; set; } = string.Empty;
 
         [Required]
