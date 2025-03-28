@@ -17,6 +17,7 @@ namespace TicketHub
 
         [Required]
         [Phone]
+        [MaxLength(14, ErrorMessage = "Phone number cannot exceed 14 characters.")]
         public string Phone { get; set; } = string.Empty;
 
         [Required]
