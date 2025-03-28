@@ -17,7 +17,6 @@ namespace TicketHub
 
         [Required]
         [Phone]
-        [MaxLength(10, ErrorMessage = "Phone number needs to be 10 numbers.")]
         public string Phone { get; set; } = string.Empty;
 
         [Required]
