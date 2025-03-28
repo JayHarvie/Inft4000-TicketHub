@@ -16,8 +16,7 @@ namespace TicketHub
         public string Name { get; set; } = string.Empty;
 
         [Required]
-        [Phone]
-        [Range(10, 14, ErrorMessage = "Phone number has to be between 10 to 14 characters.")]
+        [PhoneNumber]
         public string Phone { get; set; } = string.Empty;
 
         [Required]
