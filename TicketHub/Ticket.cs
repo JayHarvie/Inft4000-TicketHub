@@ -13,6 +13,7 @@ namespace TicketHub
 
         [Required(ErrorMessage = "Name is required")]
         [MaxLength(30, ErrorMessage = "Name needs to be a maximum length of 30 chracters.")]
+        [RegularExpression(@"^[A-Za-z\s]+$", ErrorMessage = "Name can only contain letters and spaces.")]
         public string Name { get; set; } = string.Empty;
 
         [Required]
@@ -52,7 +53,6 @@ namespace TicketHub
 
         [Required]
         [RegularExpression(@"^[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d$", ErrorMessage = "Postal code must be in the format A1A1A1.")]
-        [Range(6, 6, ErrorMessage = "Postal code must be 6 characters.")]
         public string PostalCode { get; set; } = string.Empty;
 
         [Required]
