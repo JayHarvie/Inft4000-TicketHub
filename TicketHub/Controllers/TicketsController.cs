@@ -3,6 +3,7 @@ using System.Runtime.InteropServices.Marshalling;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace TicketHub.Controllers
 {
@@ -50,8 +51,10 @@ namespace TicketHub.Controllers
             // serialize an object to json
             string message = JsonSerializer.Serialize(ticket);
 
-            // send string message to queue
-            await queueClient.SendMessageAsync(message);
+            // send string message to queue (must encode as base64 to work properly)
+            var plainTextBytes = Encoding.UTF8.GetBytes(message);
+            var base64 = Convert.ToBase64String(plainTextBytes);
+            await queueClient.SendMessageAsync(base64);
 
             return Ok("Hello " + ticket.Name + ". Contact added to Azure queue.");
         }
