@@ -52,7 +52,7 @@ namespace TicketHub
         public string Province { get; set; } = string.Empty;
 
         [Required]
-        [RegularExpression(@"^[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d$", ErrorMessage = "Postal code must be in the format A1A1A1.")]
+        [RegularExpression(@"^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$", ErrorMessage = "Postal code must be in the format A1A1A1 or A1A 1A1.")]
         public string PostalCode { get; set; } = string.Empty;
 
         [Required]
